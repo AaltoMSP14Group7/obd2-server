@@ -1,5 +1,6 @@
 #Database structure
 
+The data points live in the database obd_db and it's collection, datapoints.
 
 Each individual data point (document in the Mongo collection) is as follows:  
   
@@ -70,10 +71,10 @@ Each individual data point (document in the Mongo collection) is as follows:
     vin: “WP0ZZZ99ZTS392124”,  
     timestamp: 1394794579, 
     type: “location”,  
-    value: { // Object  
-        lat: 60.18687271299999 // Double: latitude  
-        lng: 24.821316153999994 // Double: longitude  
-    }  
+    value: [
+        60.18687271299999, // Double: latitude  
+        24.821316153999994 // Double: longitude  
+    ]
 }  
   
 // The user has stopped the tracking - last data point of a session  
