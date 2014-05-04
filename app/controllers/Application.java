@@ -19,15 +19,14 @@ public class Application extends Controller {
     	JsonNode rawValue = json.findPath("value");
     	Object value = null;
 
-    	if(type.equals("tracking_started") || type.equals("tracking_ended")) {
-    		value = new Boolean(true);
-    	} else if(type.equals("fuel_remaining") || type.equals("fuel_consumption")) {
-    		value = rawValue.asDouble();
-    	} else if(type.equals("vehicle_speed")) {
-    		value = rawValue.asInt();
-    	} else if(type.equals("distance_traveled")) {
-    		value = rawValue.asDouble();
+    	if(rawValue.isBoolean()) {
+            value = rawValue.asBoolean();
+        } else if(rawValue.isDouble()) {
+            value = rawValue.asDouble();
+        } else if(rawValue.isInt()) {
+            value = rawValue.asInt();
     	} else if(type.equals("location")) {
+            // Location is special: it's always an array with to items
     		double[] location = new double[2];
     		location[0] = rawValue.get(0).asDouble();
     		location[1] = rawValue.get(1).asDouble();
