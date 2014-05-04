@@ -3,9 +3,9 @@ package controllers;
 import play.*;
 import play.mvc.*;
 
-import views.html.*;
 import models.DataPoint;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.io.File;
 
 public class Application extends Controller {
 
@@ -40,6 +40,10 @@ public class Application extends Controller {
     	DataPoint.create(dp);
 
         return ok("");
+    }
+
+    public static Result getSpec() {
+    	return ok(Play.application().getFile("/specs/spec.xml"));
     }
 
 }
