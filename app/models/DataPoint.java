@@ -21,7 +21,7 @@ public class DataPoint {
 	public String type;
 	public Object value;
 
-	public DataPoint(String deviceId, String name, int timestamp, String type, Object value) {
+	public DataPoint(String deviceId, String vin, int timestamp, String type, Object value) {
 		this.deviceId = deviceId;
 		this.vin = vin;
 		this.timestamp = timestamp;
